@@ -1,0 +1,7 @@
+# Cursor Ignore File
+.git/
+.venv/
+__pycache__/
+*.pyc
+.env
+.notes/meeting_notes.md
