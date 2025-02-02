@@ -3,3 +3,21 @@
 __pycache__/
 .env
 .venv/
+
+# cursor
+.cursorrules
+.notes
+.cursorignore
+
+
+# ignore all uv files
+uv.lock
+pyproject.toml
+pyproject.lock
+.python-version
+hello.py
+open_ide.bat
+
+# vscode
+.vscode/
+vscode_settings.json
