@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="YAML Cheat Sheet covering basic and advanced YAML data types.">
+    <meta name="keywords" content="YAML, cheat sheet, data types, anchors, aliases, lists, dictionaries">
+    <meta name="author" content="Your Name">
+    <title>YAML Cheat Sheet</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #33ff77;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .container {
+            width: 100%;
+            padding: 20px;
+            background: #111;
+            border: 2px solid #33ff77;
+            margin-bottom: 20px;
+        }
+        h1, h2 {
+            color: #ff0;
+        }
+        pre {
+            text-align: left;
+            background: black;
+            padding: 10px;
+            border: 1px solid #33ff77;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-x: auto;
+        }
+        .toggle-container {
+            text-align: right;
+            padding: 10px;
+        }
+        .toggle-button {
+            cursor: pointer;
+            background: #333;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-container">
+        <button class="toggle-button" onclick="toggleTheme()">Toggle Light/Dark Mode</button>
+    </div>
+    <div class="container">
+        <h1>YAML Cheat Sheet</h1>
+        <h2>Basic Data Types</h2>
+        <p>YAML supports various data types, including strings, numbers, and booleans.</p>
+        <pre><code>
+# Strings - Can be enclosed in double or single quotes.
+name: "John Doe"
+city: 'New York'
+multiline: |
+  This is a multiline
+  string in YAML.
+multiline_folded: >
+  This is a folded multiline
+  string in YAML that removes
+  newlines and replaces them with spaces.
+        </code></pre>
+        <pre><code>
+# Numbers - Can be integers or floating-point values.
+age: 30
+height: 5.9
+        </code></pre>
+        <pre><code>
+# Booleans - Represent true or false values.
+is_active: true
+is_admin: false
+        </code></pre>
+        <h2>Complex Data Types</h2>
+        <p>YAML supports structured data like lists and dictionaries.</p>
+        <pre><code>
+# Lists - Represent sequences of values.
+fruits:
+  - Apple
+  - Banana
+  - Cherry
+        </code></pre>
+        <pre><code>
+# Dictionaries - Key-value pairs representing objects.
+person:
+  name: Alice
+  age: 28
+  skills:
+    - Python
+    - YAML
+        </code></pre>
+        <h2>Advanced YAML</h2>
+        <p>Advanced features include nested structures, anchors, aliases, and merge keys.</p>
+        <pre><code>
+# Nested Structures - YAML allows nesting of dictionaries and lists.
+servers:
+  - name: Server1
+    ip: 192.168.1.1
+  - name: Server2
+    ip: 192.168.1.2
+        </code></pre>
+        <pre><code>
+# Anchors & Aliases - Define reusable values using '&' and reference them with '*'.
+defaults: &defaults  # Define an anchor named 'defaults' with common settings
+  timeout: 30
+  retries: 5
+
+service1:
+  <<: *defaults  # Merge the 'defaults' values into 'service1'
+  name: API Service  # Override or add additional properties
+        </code></pre>
+        <pre><code>
+# Merge Keys - Extend or inherit configurations from another key.
+base: &base  # Define an anchor named 'base' with common settings
+  name: Common Config
+  debug: true
+
+development:
+  <<: *base  # Merge the 'base' values into 'development'
+  environment: dev  # Override or add additional properties
+        </code></pre>
+        <p>For complete YAML reference, visit: <a href="https://yaml.org/spec/">YAML Specification</a></p>
+    </div>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            if (body.style.backgroundColor === "#222") {
+                body.style.backgroundColor = "#fff";
+                body.style.color = "#000";
+            } else {
+                body.style.backgroundColor = "#222";
+                body.style.color = "#33ff77";
+            }
+        }
+    </script>
+</body>
+</html>
